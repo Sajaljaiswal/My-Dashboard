@@ -1,0 +1,11 @@
+.stu-list{
+  max-height: 15rem;
+  overflow: scroll;
+}
+.container2{
+  width: 53rem;
+}
+
+.fee-receipt-border{
+  border: 2px solid red;
+}
