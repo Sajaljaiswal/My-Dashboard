@@ -4,25 +4,33 @@ import { useDispatch } from "react-redux";
 import "./AllStudent.style.css";
 import { createStudent } from "../../features/divyaUserSlice";
 const NewStudents = () => {
-  
-  const [users, setUsers] = useState({ });
+  const [users, setUsers] = useState({});
 
   const dispatch = useDispatch();
   const handleInput = (e) => {
-        setUsers({...users, [e.target.name]: e.target.value});
+    setUsers({ ...users, [e.target.name]: e.target.value });
   };
-
-  const handleSubmitData = (e)=>{
+  const resetForm = () => {
+    document.getElementById("studentForm").reset();
+    setUsers({});
+  };
+  const handleSubmitData = (e) => {
     e.preventDefault();
     dispatch(createStudent(users));
     alert("Form Submitted");
-  }
+    resetForm();
+  };
+
   return (
     <div>
       <div className="d-flex container2">
         <img className="h-50 w-50" src={img} alt="no image" />
-        <form className="container-form" onSubmit={handleSubmitData}>
-          <h1 className="text-primary h1">New Student Details</h1> <br />
+        <form
+          className="container-form"
+          id="studentForm"
+          onSubmit={handleSubmitData}
+        >
+          <h1 className="text-primary h2">New Student Details</h1> <br />
           <input
             className="form-control w-75  "
             type="text"
@@ -103,7 +111,7 @@ const NewStudents = () => {
           />
           <br />
           <button className="btn btn-warning w-25">Reset</button> &nbsp;
-          <button className="btn btn-success w-25" onClick={()=>{}}>
+          <button className="btn btn-success w-25" onClick={() => {}}>
             Submit
           </button>
         </form>

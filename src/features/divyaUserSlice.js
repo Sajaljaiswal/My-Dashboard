@@ -38,6 +38,21 @@ export const showStudents = createAsyncThunk("showStudents", async () => {
   }
 });
 
+export const deleteStudents = createAsyncThunk(
+  "deleteStudents",
+  async (id, { rejectWithValue }) => {
+    const response = await fetch(
+      `https://65253ab067cfb1e59ce6ea6c.mockapi.io/divya/${id}`,
+      { method: "DELETE" }
+    );
+    try {
+      const result = response.json();
+      return result;
+    } catch (error) {
+      return isRejectedWithValue(error);
+    }
+  }
+);
 export const createFeeReceipt = createAsyncThunk(
   "createStudent",
   async (data) => {
@@ -60,6 +75,7 @@ export const createFeeReceipt = createAsyncThunk(
     }
   }
 );
+
 export const userDetails = createSlice({
   name: "divyaUser",
   initialState: {
@@ -87,6 +103,23 @@ export const userDetails = createSlice({
       state.users = action.payload;
     },
     [showStudents.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload.message;
+    },
+    [deleteStudents.pending]: (state) => {
+      state.loading = true;
+    },
+    [deleteStudents.fulfilled]: (state, action) => {
+      state.loading = false;
+
+      const { id } = action.payload;
+
+      if (id) {
+        state.users = state.users.filter((e) => e.id !== id);
+        alert("User Deleted Successfully!");
+      }
+    },
+    [deleteStudents.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload.message;
     },
