@@ -26,6 +26,32 @@ export const createStudent = createAsyncThunk("createStudent", async (data) => {
   }
 });
 
+//update action
+
+export const updateStudents = createAsyncThunk(
+  "updateStudents",
+  async (data, { rejectWithValue }) => {
+    console.log(data, "sajal ka data aa gya");
+    const response = await fetch(
+      `https://65253ab067cfb1e59ce6ea6c.mockapi.io/divya/${data.id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+
+    try {
+      const result = response.json();
+      return result;
+    } catch (error) {
+      return isRejectedWithValue(error);
+    }
+  }
+);
+
 export const showStudents = createAsyncThunk("showStudents", async () => {
   const response = await fetch(
     "https://65253ab067cfb1e59ce6ea6c.mockapi.io/divya"
@@ -92,6 +118,19 @@ export const userDetails = createSlice({
       state.users.push(action.payload);
     },
     [createStudent.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload.message;
+    },
+    [updateStudents.pending]: (state) => {
+      state.loading = true;
+    },
+    [updateStudents.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.users = state.users.map((e) =>
+        e.id === state.payload.id ? action.payload : e
+      );
+    },
+    [updateStudents.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload.message;
     },

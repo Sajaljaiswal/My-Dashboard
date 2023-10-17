@@ -15,7 +15,7 @@ import ReceiptStatement from "./Screens/Fee Receipt/ReceiptStatement";
 import NewCertificate from "./Screens/Certificate/NewCertificate";
 import NewMarksheet from "./Screens/Certificate/NewMarksheet";
 import CertificateList from "./Screens/Certificate/CertificateList";
-
+import UpdateStudent from "./Screens/PopUp/updateStudent";
 const AfterHomePage = () => {
   return (
     <>
@@ -28,6 +28,7 @@ const AfterHomePage = () => {
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/settings" element={<Setting />} />
             <Route path="newstudents" element={<NewStudents />} />
+            <Route path="/updateStudent/:id" element={<UpdateStudent/>} />
             <Route path="allstudents" element={<AllStudents />} />
             <Route path="newfeereceipt" element={<NewFeeReceipt />} />
             <Route path="allfeereceipt" element={<AllFeeReceipt />} />

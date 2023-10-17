@@ -63,7 +63,7 @@ const AllStudents = () => {
                   <td>{ele.course}</td>
                   <td>{ele.mobnum}</td>
                   <a type="button" class="btn btn-outline-primary" onClick={()=>[setMyId(ele.id), setViewPopUp(true)]} >VIEW</a>
-                  <Link class="btn btn-outline-success">EDIT</Link>
+                  <Link to={`/updateStudent/${ele.id}`} class="btn btn-outline-success">EDIT</Link>
                   <Link onClick={()=>dispatch(deleteStudents(ele.id))}  class="btn btn-outline-danger">DELETE</Link>
                 </tr>
               </tbody>
