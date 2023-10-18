@@ -1,11 +1,112 @@
-.stu-list{
+.stu-list {
   max-height: 15rem;
   overflow: scroll;
 }
-.container2{
+.container2 {
   width: 53rem;
 }
 
-.fee-receipt-border{
-  border: 2px solid red;
+.w-25 {
+  margin: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: auto;
+  margin: 0;
+}
+.container {
+  padding: 15px;
+  margin-left: 6vw;
+  width: 45rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  /* width: 100%; */
+  font-weight: bold;
+  color: darkblue;
+}
+#webs {
+  color: blue;
+  text-transform: capitalize;
+  font-size: larger;
+  font-weight: bolder;
+}
+h1 {
+  font-size: 35px;
+  color: darkblue;
+  margin-bottom: 10px;
+}
+.upbox {
+  margin-top: 40px;
+  display: inline-flex;
+  margin-bottom: 30px;
+}
+.left {
+  float: left;
+  margin-left: -21vw;
+  margin-right: 9vw;
+}
+.right {
+  float: right;
+  margin-left: 70%;
+  margin-right: -15vw;
+}
+.due {
+  float: right;
+  margin: 10px;
+}
+.blue {
+  color: white;
+  background-color: darkblue;
+  width: 100%;
+  text-align: center;
+}
+.lowbox,
+.lowwbox {
+  display: flex;
+  width: 100%;
+}
+.pht,
+.bar {
+  width: 60%;
+  text-align: center;
+  border: 1px solid darkblue;
+  margin-right: -3%;
+}
+.img {
+  width: 90%;
+  margin: 20px;
+}
+.barp {
+  margin: 20px;
+  width: 80%;
+}
+.name,
+.pay {
+  width: 200%;
+  padding: 5px;
+  font-size: 16px;
+  margin-left: 20px;
+  border: 1px solid darkblue;
+}
+.redr {
+  color: red;
+  margin-bottom: 30px;
+}
+.red {
+  color: red;
+  margin-bottom: 10px;
+  margin-top: 80px;
+}
+.sign {
+  float: right;
+  margin-top: 20px;
+}
+#sign {
+  border: none;
+  border-bottom: 1px solid darkblue;
+  width: 1vw;
 }

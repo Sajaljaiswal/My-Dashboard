@@ -1,4 +1,4 @@
-import React, { useEffect, useState , useRef} from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { showStudents } from "../../features/divyaUserSlice";
 import { useSelector } from "react-redux";
@@ -22,7 +22,7 @@ const AllFeeReceipt = () => {
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
-  })
+  });
   return (
     <>
       <h1 className="text-primary">All Student Fee Receipt Details</h1> <br />
@@ -47,24 +47,104 @@ const AllFeeReceipt = () => {
           </select>
         </li>
       </div>
-      <div ref={componentRef} >
-      <div className="fee-receipt-border">
-        <span className="">Website : https://divya.ndlmindia.com</span>
-        <h1 className="text-primary h1">Divya Technical Institute, Mardah</h1> <br />
-        
+      <div ref={componentRef}>
+        <div className="fee-receipt-border">
+          <div class="container">
+            <label>
+              <p>
+                <span id="webs">website</span>: https://divya.ndlmindia.com
+              </p>
+            </label>
+            <label>
+              
+              <h1>Divya Technical Institute, Mardah</h1>
+            </label>
+            <div class="upbox">
+              <div class="left">
+                <p>
+                  <span>Mobile</span>: 9792257501
+                </p>
+                <p>
+                  <span>Email</span>: divjhcomputer2@gmail.com
+                </p>
+              </div>
 
-        <span>Mobile : </span> <span> 8382984559</span>     <span>Date : </span> <span> 8382984559</span>
-        <br />
-        <span>E-mail : </span> <span> jaiswalsajal642@gmail.com</span>    <span>Receipt ID : </span> <span> 8382984559</span>
-            <span>Receipt No : </span> <span> 8382984559</span>
-      
-        <h3>name: {selectedValue}</h3>
-        <h3>Signature : ..................</h3>
-      </div>
+              <div class="right">
+                <p>
+                  <span>Date</span>: 20-Apr- 2017
+                </p>
+                <p>
+                  <span>Receipt ID</span>: 7944
+                </p>
+                <p>
+                  <span>Receipt No.</span>: 13354
+                </p>
+              </div>
+            </div>
+
+            <div class="blue">
+              <h2>STUDENT FEE RECEIPT</h2>
+            </div>
+            <div class="lowbox">
+              <div class="pht">
+                <img src="/User-Profile-PNG-Image.png" alt="" class="img" />
+              </div>
+              <div class="name">
+                <p>
+                  <span>Name</span> : VICKY ANAND
+                </p>
+                <p>
+                  <span>Guardian</span>: PREM PRAKASH
+                </p>
+                <br />
+                <p>
+                  <span>Course</span>: ADCA (Advance Diploma in Computer
+                  Application)
+                </p>
+                <br />
+                <p>
+                  <span>Fee Month</span>: April
+                </p>
+                <p>
+                  <span>Fee paid</span>: 300
+                </p>
+                <p class="due">
+                  <span>Fee due</span>: 20
+                </p>
+              </div>
+            </div>
+            <div class="lowwbox">
+              <div class="bar">
+                <img src="/bar.png" alt="" class="barp" />
+              </div>
+
+              <div class="pay">
+                <p class="redr">Received Rs. Three Hundred Only</p>
+                <p class="sign">
+                  Received By.
+                  <input type="text" name="" id="sign" placeholder="." />
+                </p>
+                <p class="red">
+                  Student's username & password to check their details online on
+                  our website
+                </p>
+                <label>
+                  
+                  <p>Student's username: 276748394550</p>
+                </label>
+                <label>
+                  
+                  <p>Student's password: 13345</p>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div>
-      <button className="btn btn-warning w-25" onClick={handlePrint}>Print</button>
-
+        <button className="btn btn-warning w-25" onClick={handlePrint}>
+          Print
+        </button>
       </div>
     </>
   );
